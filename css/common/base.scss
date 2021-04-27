@@ -1,0 +1,171 @@
+@import "../../sass/base/base.scss";
+
+@font-face{
+    font-family: SlaboFont;
+    src: url('../../fonts/Slabo27px-Regular.ttf')
+    }
+    @font-face{
+        font-family: UltraFont;
+        src: url('../../fonts/Ultra-Regular.ttf')
+        }
+    
+    .SlaboFont{
+        font-family: SlaboFont;
+    } 
+    .UltraFont{
+        font-family: UltraFont;
+    }
+    *{
+        font-family: UltraFont; 
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: UltraFont; 
+    font-weight: normal;
+    line-height: 1.1;
+    color: inherit;
+}
+.g-1200{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+//========header========start
+.g-header-absolute{ 
+position: absolute;
+left: 0;
+right: 0;
+z-index: 100;;
+
+}
+.g-header{
+    padding:2% 5% 0px 5%; 
+   
+    @at-root .g-logo{
+        img{
+            display: block;
+            width: 27%;
+            
+        }
+    }
+    @at-root .g-menus{
+        li{
+            margin-right:.3rem;
+            display: inline-block;
+            a{
+                font-size: .3rem;
+                display:block;
+                padding: .1rem;
+                color: #fff;
+                @extend .UltraFont;
+                &.active{
+                    color:#d42525;
+                    
+                }
+                &:hover{
+                    color:#d42525;
+                }
+            }
+
+        }
+    }
+    @at-root .g-loginBtn{
+        padding:.1rem .1rem .1rem .5rem;
+        background:url("../../images/pic_06.png") no-repeat left center / .2rem;
+        @extend .UltraFont;
+        color: #69a01e;
+        font-size: .3rem;
+        a{
+            color: #69a01e;
+            font-size: .3rem;
+        }
+
+
+    }
+}
+
+//========header========end
+
+//========footer========start
+.g-footer{
+    background: #000813;
+    padding: 30px 0 10px;
+    clear: both;
+    @at-root .g-footer-box{
+        width: 10rem;
+        margin: 0 auto;
+    }
+    @at-root .g-ft-cont{
+        padding-bottom: 15px;
+        .tit{
+            color:#d42525;
+            font-size: .15rem;
+            margin-bottom: 10px;
+        }
+        .links{
+            a{
+                color:#fff;
+                font-size: .12rem;
+                margin-right:30px;
+                line-height: 2;
+            }
+        }
+
+    }
+    @at-root .g-ft-pic{
+       img{
+           width: 60%;
+       }
+    }
+ 
+    @at-root .g-ft-subs{
+        clear: both;
+        width: 100%;
+        padding:.2rem;
+        text-align:center;
+        color:#fff;
+        font-size: .12rem;
+    }
+}
+//========footer========end
+
+//==========屏幕宽度<768px==========start
+.screen-phone{
+   
+    //------顶部
+    .g-logo img{
+        width: .5rem;
+    }
+    .g-menus li a{
+        font-size: .2rem;
+    }
+    .g-loginBtn{
+        font-size: .2rem;;
+    }
+    .g-footer-box{
+        width: 100%;
+    }
+    
+}
+//==========屏幕宽度<768px==========end
+//==========pc端==========start
+.device-desktop{
+    .g-logo{
+       
+        img{
+            width: 51px;
+        }
+    }
+    .g-menus li a,.g-loginBtn{
+        font-size: 18px;
+    }
+    .g-loginBtn{
+        font-size: 18px;
+        background-size: 18px;
+        padding: .1rem .1rem .1rem 35px;
+    }
+    .cl_hard_btn1, .cl_hard_btn2, .cl_hard_btn3{
+        padding: 6px 13px;
+    }
+}
+//==========pc端==========end
