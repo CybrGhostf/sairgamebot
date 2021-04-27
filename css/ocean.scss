@@ -1,0 +1,331 @@
+@charset "UTF-8";
+@import "../sass/global.scss";
+
+@font-face{
+    font-family: SlaboFont;
+    src: url('../fonts/Slabo27px-Regular.ttf')
+    }
+    
+    @font-face{
+        font-family: UltraFont;
+        src: url('../fonts/Ultra-Regular.ttf')
+        }
+    
+    .SlaboFont{
+        font-family: SlaboFont;
+    } 
+    .UltraFont{
+        font-family: UltraFont;
+    }
+    *{
+        font-family: UltraFont; 
+    }
+// body {
+//     background: #d42525;
+// }
+
+.cl_hard_top_bj {
+    width: 100%;
+    height: 785px;
+    padding-top: 100px;
+    background: url(../images/bg_03.jpg) no-repeat top center/auto 100%;
+}
+.cl_hard_cent_top {
+    width: 100%;
+    background:#d42525;
+    padding-bottom: 1rem;
+}
+
+.cl_gd {
+    overflow:scroll;
+    overflow-x:hidden;
+    min-height: 5rem;
+    max-height:10rem;
+}
+
+.cl_hard_cent_list {
+    width: 1200px;
+    margin: -1.7rem auto 0;
+}
+
+.cl_hard_top_cent_middle_title {
+    color: #fff;
+    font-size: 24px
+}
+//list
+.cl_cent_middle_list_all {
+    margin-bottom: .25rem;
+    padding: 0 .2rem;
+    @at-root .cl_cent_middle_pic{
+        width: 100%;
+        height: 3.3rem;
+        position: relative;
+        margin-bottom: .15rem;
+        text-align: center;
+        .pic{
+          // object-fit:contain;
+           //display: block;
+         //  width: 100%;
+           height: 100%;
+           border-radius: 8px;
+           background-color: #fff;
+
+        }
+    }
+    @at-root .cl_cent_middle_cont{
+        .tit{
+            font-size: .24rem;
+            color: #000813;
+            margin-bottom: .05rem;
+        }
+        .item{
+            li{
+
+                @include display-flex();
+                @include justify-content(space-between);
+            p{
+                font-size: .14rem;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #000813;
+                line-height: 1.5;
+                &:last-of-type{
+                    color: #fff;
+                }
+            }
+            }
+        }
+        
+    }
+}
+
+
+.cl_cent_middle_bot_all {
+    width: 1200px;
+    margin: 0 auto 20px;
+}
+
+.cl_cent_middle_bot_btn {
+    border-radius: 6px;
+    background: red;
+    padding: 5px 12px;
+    color: #fff;
+    display: inline-block;
+}
+
+.cl_hard_top_span {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.cl_hard_top_s {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-left: 30px;
+}
+
+.cl_hard_cent_span {
+    text-align: center;
+    font-size: .32rem;
+    padding:1rem 0 .8rem;
+    color: #fff;
+    background-color: #69a01e;
+    height: 4rem;
+}
+.cl_hard_top_cennt{
+    width: 1027px;
+    margin: 0 auto;
+    position: relative;
+    &::before{
+        @include pseudo-Element;
+        width: 758px;
+        height: 642px;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        background: url("../images/quan_bg1.png") no-repeat center / 100%;
+      }
+}
+.cl_hard_top_r{
+    position: absolute;
+    width: 327px;
+    top: 5px;
+    right: 0px;
+    padding-right: 30px;
+    padding-top: 280px;
+    
+}
+.cl_hard_top_box{
+    z-index: 1;
+    width: 178px;
+    height: 178px;
+    border-radius: 50%;
+    background: url("../images/quan_bg2.png") no-repeat center / 100%;
+    position: absolute;
+    
+    color: #ecc04e;
+    font-size: .2rem;
+    text-align: center;
+    &:nth-of-type(1){
+        background-image: url("../images/quan_bg3.png");
+        color: #69a01e;
+        left:0;
+        top:174px;
+    }
+    &:nth-of-type(2){
+        background-image: url("../images/quan_bg4.png");
+        color: #d42525;
+        left: 260px;
+        top: 290px;
+    }
+    &:nth-of-type(3){
+        left: 560px;
+        top: 250px;
+       
+    }
+}
+.cl_hard_top_input_all {
+    width: 100%;
+    background: #ecc04e;
+    border-radius: 10px;	
+    box-sizing: border-box;	
+    padding:24px 0 24px 50px;
+
+}
+.cl_hard_top_input_text{
+    width: 94%;
+    border: none;
+    background: #FFFFFF;
+    padding:0.08rem .15rem;
+    font-size: .12rem;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: .15rem;
+
+}
+.cl_hard_top_input_btn_all{
+    overflow: hidden;
+    width: 94%;
+}
+.cl_hard_top_btn_1,.cl_hard_top_btn_2{
+    background: #d42525;
+    padding: .05rem .1rem;
+    border-radius: 5px;
+    font-size: .1rem;
+    text-align: center;
+    color: #fff;
+    &:first-of-type{
+        margin-right: .1rem;
+        width: 35%;
+    }
+    
+}
+.cl_hard_top_r_all{
+    width: 100%;
+
+}
+.cl_hard_top_r_cont{
+    color: #28d6d6;
+    font-size: .12rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: .2rem;
+    text-align: justify;
+
+
+}
+.cl_hard_top_r_btn{
+    background: #28d6d6;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 8px;
+    padding: .08rem .1rem;
+}
+/*iphone*/
+
+// @media only screen and (max-width: 1024px) {
+//     .cl_hard_cent_list {
+//         width: 96%;
+//     }
+//     .cl_hard_top_cennt{
+//         width: 94%;
+//     }
+//     .cl_hard_top_r{
+//         margin-top: 70px;
+//     }
+// }
+
+
+  //==========屏幕宽度<768px==========start
+  .screen-phone{
+    .cl_hard_top_cennt{
+        width: 100%;
+        @include display-flex();
+        @include justify-content(space-around);
+        &::before{
+         width: 100%;
+        }
+    }
+    .cl_hard_top_box{
+        @include size(1.8rem);
+        position: initial;
+        
+    }
+    .cl_hard_top_r{
+        padding: 0;
+        top: 2.44rem;
+        left: .3rem;
+        right:.3rem;
+        width: auto;
+        
+    }
+    
+    .cl_hard_top_bj{
+        padding-top: 1.3rem;
+        height: 10rem;
+
+    }
+    .cl_hard_top_input_all{
+        padding: .5rem;
+    }
+    .cl_hard_top_input_text,.cl_hard_top_input_btn_all{
+        width: 100%;
+    }
+    .cl_hard_cent_list{
+        width: 100%;
+        padding: 0 .5rem;
+    }
+  }
+  //==========屏幕宽度<768px==========end
+  
+    //==========pc端==========start
+.device-desktop{
+    .cl_hard_top_bj{
+        height: 600px;
+        background-size: cover;
+    }
+    .cl_hard_top_cennt{
+        height: 100%;
+        &::before{
+            width: 60%;
+            height: 100%;
+        }
+       
+    }
+    .cl_hard_top_box{
+        &:nth-of-type(1){
+            top:72px
+        }
+        &:nth-of-type(2){
+            top:145px
+        }
+        &:nth-of-type(3){
+            top:125px
+        }
+    }
+    .cl_hard_top_r{
+        top: -127px;
+    }
+}
+  
+  //==========pc端==========end
