@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Mywallet - NFTOctopus</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/common/zui.min.css" rel="stylesheet" type="text/css">
+	<link href="css/common/base.css" rel="stylesheet" type="text/css">
+	<link href="css/wallet.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/zui.min.js"></script>
+	<script src="js/font.js"></script>
+	<script src="js/utils/request.js"></script>
+	<script src="js/pageApi/myWallet.js"></script>
+	<script>
+		jQuery(function () {
+			jQuery(".cl_cent_middle_bot_btn").click(function () {
+				alert("to be annouced!");
+			});
+		});
+	</script>
+
+	<style>
+		.set {
+			width: 70px;
+			height: 25px;
+			color: #fff;
+			background-color: #000;
+			font-family: serif;
+			text-align: center;
+			line-height: 25px;
+			margin-left: 40%;
+			margin-top: 15px;
+		}
+
+		.cl_hard_top_input_text {
+			width: 80%;
+			margin-left: 10%;
+			margin-top: 15px;
+			border: none;
+			background: #FFFFFF;
+			padding: 0.08rem .15rem;
+			font-size: .12rem;
+			border-radius: 5px;
+			display: block;
+			margin-bottom: .15rem;
+
+		}
+
+		/*谷歌*/
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+
+		/*火狐*/
+		input[type="number"] {
+			-moz-appearance: textfield;
+		}
+	</style>
+</head>
+
+<body>
+	<!--header-->
+	<header class="g-header g-header-absolute row">
+		<div class="g-header-lt col-xs-10">
+			<div class="g-logo col-xs-3"><img src="images/logo.png"></div>
+			<nav class="g-menus col-xs-9">
+				<li><a href="/">Home</a></li>
+				<li><a href="ocean.html" class="a_unlock">Ocean</a></li>
+				<li><a href="mywallet.html" class="active a_unlock">My Wallet</a></li>
+				<li><a href="rank.html" class="a_unlock">Balance Ranking<span class="unlock"> </span></a>
+				</li>
+			</nav>
+		</div>
+		<div class="g-loginBtn col-xs-2">Unlock</div>
+		<div class="address col-xs-2 " style="color:#fff"></div>
+	</header>
+
+	<!--1-->
+	<div class="cl_hard_top_bj">
+
+		<div class="cl_hard_top_cent">
+			<div class="cl_hard_top_cent_l">
+
+
+			</div>
+			<div class="cl_hard_top_cent_r">
+				<div class="cl_hard_top_cent_r_all">
+					<div class="cl_hard_top_span"><span>OCT BALANCE :</span><span class="cl_hard_top_s balance">0</span>
+						OCT
+					</div>
+					<div class="cl_hard_top_span"><span>LOCKED QUANTITY :</span><span
+							class="cl_hard_top_s qual">0</span> OCT <span class="cl_hard_top_btn_s"><a
+								href="#">purchase</a></span></div>
+					<div class="cl_hard_top_span"><span>OCTOPUS :</span><span class="cl_hard_top_s points">0</span>
+					</div>
+					<div class="cl_hard_top_span"><span>VSYS BALANCE :</span><span class="cl_hard_top_s vsys">0</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<!-- list -->
+	<!--CARD LIST-->
+	<div class="cl_hard_cent_top">
+
+		<div class="cl_hard_cent_list">
+			<div class="cl_hard_cent_span">My card list</div>
+			<div class="cl_gd">
+				<div class="cl_gd_all row">
+				</div>
+			</div>
+
+		</div>
+		<!--<div class="cl_cent_middle_bot_all">
+			<div class="cl_cent_middle_bot_btn">Palace of the Prophet</div>
+		</div>-->
+
+	</div>
+
+	<!--footer-->
+	<footer class="g-footer">
+		<div class="g-footer-box">
+			<div class="g-ft-item g-ft-left col-md-6 col-xs-12">
+				<div class="g-ft-cont col-md-6 col-xs-6">
+					<h3 class="tit">Quick links</h3>
+					<div class="links">
+						<a href="#">Home</a><br />
+						<a href="#">Ocean</a><br />
+						<a href="#">My Wallet</a><br />
+						<a href="#">Buy OCT</a><br />
+						<a href="#">Palace of the Prophet</a>
+					</div>
+				</div>
+				<div class="g-ft-cont col-md-6 col-xs-6">
+					<h3 class="tit">Social updates</h3>
+					<img src="images/share.png" usemap="#Map" class="share">
+					<map name="Map">
+						<area shape="rect" coords="1,1,34,27" href="https://nftoctopus.medium.com/">
+						<area shape="rect" coords="42,2,77,28" href="https://twitter.com/nftoctopus">
+						<area shape="rect" coords="86,-1,120,31" href="https://github.com/nftoctopus">
+						<area shape="rect" coords="133,2,168,28" href="https://t.me/nftoct">
+						<area shape="rect" coords="179,0,211,25" href="https://discord.gg/ypbMQYn8">
+					</map>
+				</div>
+			</div>
+			<div class="g-ft-item g-ft-right col-md-6 col-xs-12">
+				<div class="g-ft-cont col-xs-8">
+					<h3 class="tit">What is NFToctopus</h3>
+					<div class="links">
+						<a href="https://nftoctopus.medium.com/origin-story-the-animal-oracle-octopus-4c643729a34e">Octopus
+							Storyline</a><br />
+						<a href="https://nftoctopus.medium.com/nftoctopus-game-terms-72db18b669">Game Terms</a><br />
+						<a href="#">service@nftoctopus.com</a><br />
+						<a href="http://nftoctopus.com/logo-256.png">Octopus Icons</a>
+					</div>
+				</div>
+				<div class="g-ft-pic col-xs-4">
+					<img src="images/pic_03.png">
+				</div>
+			</div>
+			<div class="g-ft-subs">
+				漏NFToctopus
+			</div>
+		</div>
+	</footer>
+
+
+</body>
+
+</html>
