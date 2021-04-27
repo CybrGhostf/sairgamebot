@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "global.scss",
+        "base/_variables_v1.0.0.scss",
+        "base/_mixins_v1.0.0.scss",
+        "base/_svgtodata.scss",
+        "base/_css3.scss"
+    ],
+    "names": [],
+    "file": "global.css"
+}
