@@ -1,4 +1,4 @@
-const baseUrl = 'https://test-console-api.herokuapp.com/'
+const baseUrl = 'https://test-console-api.herokuapp.com'
 
 //显示加载loading
 function showLoading() {
