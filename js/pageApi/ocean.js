@@ -2,10 +2,15 @@ const num = [1, 2, 3, 4, 5]
 let total = 0
 
 let isDeposit = JSON.parse(window.localStorage.getItem('isDeposit'))
-let contractId = 'CEuZwVVF4cy92PfWhNDxSkY3UinnQibidsM'
-let tokenId = 'TWutMwKchNACt2moML1Mbro7QUXfY85YZDeg8MasU'
-let recipient = 'ATurAq5tYF7XakZfCgRBTWND6tQoKVznARE'
-let BuyRecipient = 'AUBMBq1Ej1DvXBghTENXWe1S52Suqf8qrCe'
+// let contractId = 'CEuZwVVF4cy92PfWhNDxSkY3UinnQibidsM'
+// let tokenId = 'TWutMwKchNACt2moML1Mbro7QUXfY85YZDeg8MasU'
+// let recipient = 'ATurAq5tYF7XakZfCgRBTWND6tQoKVznARE'
+// let BuyRecipient = 'AUBMBq1Ej1DvXBghTENXWe1S52Suqf8qrCe'
+
+let contractId = ‘CCBtpBGWMSUHXSGBzruV7qxDVmRh8RMaXr9’
+let tokenId = ‘TWZzuRJST8uhsdc484eHoyDSRKyxGqJMn7NiNpmhC’
+let recipient = ‘ARR2BNk7sNUzXz2c2P6Syz9vysYqcuGCxRJ’
+let BuyRecipient = ‘ARR2BNk7sNUzXz2c2P6Syz9vysYqcuGCxRJ
 
 //质押
 async function depositToken() {
