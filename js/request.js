@@ -1,5 +1,5 @@
 //设置baseUrl,可自行修改
-const baseUrl = 'http://api.nftoctopus.com'
+const baseUrl = 'https://api.nftoctopus.com'
 
 //与钱包插件数据交互
 function getVsysRequest(type, params) {
