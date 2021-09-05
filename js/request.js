@@ -66,6 +66,7 @@ $(document).on("click", ".g-loginBtn", async function () {
             window.localStorage.removeItem('total')
             $.removeCookie('publicKey');
             $.removeCookie('address');
+            $.removeCookie('oct_balance');
             window.location.reload()
         }
     } else {

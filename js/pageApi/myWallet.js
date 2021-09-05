@@ -114,6 +114,7 @@ async function getOCT() {
     let amountData = await getVsysRequest("tokenAmount", { tokenId: 'TWufBiMfLaaaqJKu1zPR8CgyfmiYdEPUM7YCEmkyw' })
     if (amountData.result) {
         $('.balance').text(amountData.amount)
+        $.cookie('oct_balance', amountData.amount);
     } else {
         $('.balance').text(0)
     }

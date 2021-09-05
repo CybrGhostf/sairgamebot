@@ -2,18 +2,22 @@ const num = [1, 2, 3, 4, 5]
 let total = 0
 
 let isDeposit = JSON.parse(window.localStorage.getItem('isDeposit'))
-// let contractId = 'CEuZwVVF4cy92PfWhNDxSkY3UinnQibidsM'
-// let tokenId = 'TWutMwKchNACt2moML1Mbro7QUXfY85YZDeg8MasU'
-// let recipient = 'ATurAq5tYF7XakZfCgRBTWND6tQoKVznARE'
-// let BuyRecipient = 'AUBMBq1Ej1DvXBghTENXWe1S52Suqf8qrCe'
 
+// Deposit contract id
 let contractId = 'CCJtnJyQkgVyaxnSKkzZTWMwFFmeKxXdaXs';
+// Octopus token id
 let tokenId = 'TWYzPD6Gi64Det4aksEAPpwjjWgVMPFBH3fewXzQg';
 let recipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
 let BuyRecipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
+let octopusTokenId = "TWar6LKVSYRwxkEZ3Viqa1QAZeq25w93WmHAbppbf";
 
 //质押
 async function depositToken() {
+    let octBalance = $.cookie("oct_balance");
+    if (octBalance < total) {
+        alert("OCT is not enough!");
+        return;
+    }
     if (num.indexOf(Number(total)) != -1) {
         showLoading()
         //禁止多次点击
@@ -25,6 +29,10 @@ async function depositToken() {
         }
         let transactionData = await getVsysRequest('depositToken', params)
         if (transactionData.result) {
+            if (typeof(transactionData.transactionId) == undefined) {
+                alert("Deposit failed");
+                return;
+            }
             let data = new FormData()
             data.append('symbol', 'oct')
             data.append('walletAddress', $.cookie('address'))
@@ -333,11 +341,17 @@ function getTransactionCardLists() {
     )
 }
 
+// Get OCT balance
+async function getOCT() {
+    let amountData = await getVsysRequest("tokenAmount", { tokenId: octopusTokenId })
+    if (amountData.result) {
+        $.cookie('oct_balance', amountData.amount);
+    }
+}
+
 $(document).on("click", ".cl_hard_top_btn_1", depositToken)
 
 $(document).on("click", ".cl_hard_top_btn_2", withdrawToken)
-
-
 
 $(document).ready(function () {
     $('input').keyup(function () {
@@ -360,5 +374,7 @@ $(document).ready(function () {
     getCardLists()
     //获取交易卡片数据
     getTransactionCardLists()
+    // Get OCT balance
+    getBalance()
 })
 
