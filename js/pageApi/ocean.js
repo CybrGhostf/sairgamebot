@@ -341,14 +341,6 @@ function getTransactionCardLists() {
     )
 }
 
-// Get OCT balance
-async function getOCT() {
-    let amountData = await getVsysRequest("tokenAmount", { tokenId: octTokenId })
-    if (amountData.result) {
-        $.cookie('oct_balance', amountData.amount);
-    }
-}
-
 $(document).on("click", ".cl_hard_top_btn_1", depositToken)
 
 $(document).on("click", ".cl_hard_top_btn_2", withdrawToken)
@@ -374,7 +366,5 @@ $(document).ready(function () {
     getCardLists()
     //获取交易卡片数据
     getTransactionCardLists()
-    // Get OCT balance
-    getOCT()
 })
 
