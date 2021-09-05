@@ -9,7 +9,7 @@ let contractId = 'CCJtnJyQkgVyaxnSKkzZTWMwFFmeKxXdaXs';
 let tokenId = 'TWYzPD6Gi64Det4aksEAPpwjjWgVMPFBH3fewXzQg';
 let recipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
 let BuyRecipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
-let octopusTokenId = "TWar6LKVSYRwxkEZ3Viqa1QAZeq25w93WmHAbppbf";
+let octTokenId = "TWar6LKVSYRwxkEZ3Viqa1QAZeq25w93WmHAbppbf";
 
 //质押
 async function depositToken() {
@@ -343,7 +343,7 @@ function getTransactionCardLists() {
 
 // Get OCT balance
 async function getOCT() {
-    let amountData = await getVsysRequest("tokenAmount", { tokenId: octopusTokenId })
+    let amountData = await getVsysRequest("tokenAmount", { tokenId: octTokenId })
     if (amountData.result) {
         $.cookie('oct_balance', amountData.amount);
     }

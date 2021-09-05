@@ -71,7 +71,7 @@ function getMyCard() {
 //获取用户当前积分数据
 function getPoints() {
     $.get(
-        "http://gemmer.vcoin.systems:9922/contract/balance/" + $.cookie('address') + "/" + tokenId ,
+        "http://gemmer.vcoin.systems:9922/contract/balance/" + $.cookie('address') + "/" + tokenId,
 
         function (res) {
             if (res.status = '200') {
@@ -111,7 +111,7 @@ function getPointsList() {
 }
 
 async function getOCT() {
-    let amountData = await getVsysRequest("tokenAmount", { tokenId: 'TWufBiMfLaaaqJKu1zPR8CgyfmiYdEPUM7YCEmkyw' })
+    let amountData = await getVsysRequest("tokenAmount", { tokenId: octTokenId })
     if (amountData.result) {
         $('.balance').text(amountData.amount)
         $.cookie('oct_balance', amountData.amount);
