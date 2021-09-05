@@ -375,6 +375,6 @@ $(document).ready(function () {
     //获取交易卡片数据
     getTransactionCardLists()
     // Get OCT balance
-    getBalance()
+    getOCT()
 })
 
