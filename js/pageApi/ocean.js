@@ -11,6 +11,48 @@ let recipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
 let BuyRecipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
 let octTokenId = "TWar6LKVSYRwxkEZ3Viqa1QAZeq25w93WmHAbppbf";
 
+async function waitTillVsysTxSuccess(txId, delay = 4000, retries = 30) {
+    const { network } = await window.vsys.request({ method: 'info' });
+    const isMainnet = network === "Mainnet";
+    const BASE_NODE_URI = isMainnet ? 'https://wallet.v.systems' : 'https://test.v.systems/';
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+
+    // const fetchVsysTx2 = (txId) => fetch(`${BASE_NODE_URI}/api/transactions/info/${txId}`).then(d => d.json());
+    const fetchVsysTx = (txId) => new Promise(r => $.get(
+        `${BASE_NODE_URI}/api/transactions/info/${txId}`,
+        function (res) {
+            r(res)
+        },
+        "json"
+    ))
+
+    const isStatusSuccess = (responseData) => {
+        if (responseData.status === "Success") {
+            return true;
+            // return responseData
+        } else {
+            throw new Error('response.status is not success due to: ' + responseData.message)
+        }
+    };
+
+    const retryOperation = (operation, delay, retries) => new Promise((resolve, reject) => {
+        return operation()
+            .then(isStatusSuccess)
+            .then(resolve)
+            .catch((reason) => {
+                if (retries > 0) {
+                    return wait(delay)
+                        .then(retryOperation.bind(null, operation, delay, retries - 1))
+                        .then(resolve)
+                        .catch(reject);
+                }
+                return reject(reason);
+            });
+    });
+
+    return retryOperation(() => fetchVsysTx(txId), delay, retries);
+}
+
 //质押
 async function depositToken() {
     let octBalance = $.cookie("oct_balance");
@@ -31,6 +73,11 @@ async function depositToken() {
         if (transactionData.result) {
             if (typeof(transactionData.transactionId) == undefined) {
                 alert("Deposit failed");
+                return;
+            }
+            if (! await waitTillVsysTxSuccess(transactionData.transactionId)){
+                // tx pending
+                alert('tx is not success for 2 minutes')
                 return;
             }
             let data = new FormData()
@@ -93,6 +140,15 @@ async function withdrawToken() {
             }
             let transactionData = await getVsysRequest('withdrawToken', params)
             if (transactionData.result) {
+                if (typeof(transactionData.transactionId) == undefined) {
+                    alert("Deposit failed");
+                    return;
+                }
+                if (! await waitTillVsysTxSuccess(transactionData.transactionId)){
+                    // tx pending
+                    alert('tx is not success for 2 minutes')
+                    return;
+                }
                 let data = new FormData()
                 data.append('symbol', 'oct')
                 data.append('walletAddress', $.cookie('address'))
