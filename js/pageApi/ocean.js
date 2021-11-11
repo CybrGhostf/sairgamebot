@@ -4,7 +4,7 @@ let total = 0
 let isDeposit = JSON.parse(window.localStorage.getItem('isDeposit'))
 
 // Deposit contract id
-let contractId = 'CCBtpBGWMSUHXSGBzruV7qxDVmRh8RMaXr9';
+let contractId = 'CCBicp7ywyp6hog9UUCar4bw8QrxwBLwFDU';
 // op token id
 let tokenId = 'TWZy7VmrYbFWNPGpDcsepN2GZqKVZgYWc93VufMEK';
 let recipient = 'ARR2BNk7sNUzXz2c2P6Syz9vysYqcuGCxRJ';
