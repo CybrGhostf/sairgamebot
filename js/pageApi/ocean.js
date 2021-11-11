@@ -4,12 +4,12 @@ let total = 0
 let isDeposit = JSON.parse(window.localStorage.getItem('isDeposit'))
 
 // Deposit contract id
-let contractId = 'CCJtnJyQkgVyaxnSKkzZTWMwFFmeKxXdaXs';
-// Octopus token id
-let tokenId = 'TWYzPD6Gi64Det4aksEAPpwjjWgVMPFBH3fewXzQg';
-let recipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
-let BuyRecipient = 'AR44fqiAHarRACoJsQzRVVoj4jBx5h2Qp7h';
-let octTokenId = "TWar6LKVSYRwxkEZ3Viqa1QAZeq25w93WmHAbppbf";
+let contractId = 'CCBtpBGWMSUHXSGBzruV7qxDVmRh8RMaXr9';
+// op token id
+let tokenId = 'TWZy7VmrYbFWNPGpDcsepN2GZqKVZgYWc93VufMEK';
+let recipient = 'ARR2BNk7sNUzXz2c2P6Syz9vysYqcuGCxRJ';
+let BuyRecipient = 'ARR2BNk7sNUzXz2c2P6Syz9vysYqcuGCxRJ';
+let octTokenId = "TWZzuRJST8uhsdc484eHoyDSRKyxGqJMn7NiNpmhC";
 
 async function waitTillVsysTxSuccess(txId, delay = 4000, retries = 30) {
     const { network } = await getVsysRequest('info');
