@@ -1,4 +1,4 @@
-const baseUrl = 'https://octopus-console-api.herokuapp.com'
+const baseUrl = 'https://api.nftoctopus.com'
 
 //显示加载loading
 function showLoading() {
