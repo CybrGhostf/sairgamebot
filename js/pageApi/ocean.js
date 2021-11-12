@@ -11,20 +11,25 @@ let recipient = 'ARR2BNk7sNUzXz2c2P6Syz9vysYqcuGCxRJ';
 let BuyRecipient = 'ARR2BNk7sNUzXz2c2P6Syz9vysYqcuGCxRJ';
 let octTokenId = "TWZzuRJST8uhsdc484eHoyDSRKyxGqJMn7NiNpmhC";
 
-async function waitTillVsysTxSuccess(txId, delay = 4000, retries = 30) {
+async function waitTillVsysTxSuccess(txId, delay = 1000, retries = 60) {
     const { network } = await getVsysRequest('info');
     const isMainnet = network === "Mainnet";
     const BASE_NODE_URI = isMainnet ? 'https://wallet.v.systems' : 'https://test.v.systems/';
     const wait = ms => new Promise(r => setTimeout(r, ms));
 
-    // const fetchVsysTx2 = (txId) => fetch(`${BASE_NODE_URI}/api/transactions/info/${txId}`).then(d => d.json());
-    const fetchVsysTx = (txId) => new Promise(r => $.get(
-        `${BASE_NODE_URI}/api/transactions/info/${txId}`,
-        function (res) {
-            r(res)
+    const fetchVsysTx = (txId) => new Promise((resolve, reject) => $.ajax({
+        type: "GET",
+        url: `${BASE_NODE_URI}/api/transactions/info/${txId}`,
+        contentType: "application/json",
+        success: function (data, status, xhr) {
+            resolve(data);
         },
-        "json"
-    ))
+        error: function (xhr, status, error) {
+            console.error(error);
+            reject(error);
+        },
+        dataType: "json"
+    }));
 
     const isStatusSuccess = (responseData) => {
         if (responseData.status === "Success") {
